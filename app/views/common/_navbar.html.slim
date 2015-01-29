@@ -1,0 +1,20 @@
+.ui.menu
+  a.item href="#{items_path}" class=('active' if controller?('items') && action?('index'))
+    i.list.icon
+    | Items
+  a.item href="#{new_item_path}" class=('active' if controller?('items') && action?('new'))
+    i.plus.icon
+    | Add item
+  .right.menu
+    a.item href="#{hq_root_path}" class=('active' if controller? 'hq/items')
+      i.icon.setting
+      | Admin
+    - if current_admin
+      a.item data-method="DELETE" href="#{destroy_admin_session_path}"
+        i.icon.sign.out
+        | Log out
+    .item.fixheight
+      form action=(controller? 'hq/items' ? hq_items_path : items_path)
+        .ui.transparent.icon.input
+          input type="text" placeholder="Search..." name="query"
+          i.search.link.icon

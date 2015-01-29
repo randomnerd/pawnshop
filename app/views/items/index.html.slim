@@ -1,0 +1,12 @@
+.ui.cards
+  - @items.each do |item|
+    .card
+      .image
+        img src="#{item.image.url :thumb}"
+      .content
+        .header= item.title
+        .description= item.text_status
+      - if item.price
+        .extra.content
+          i.icon.dollar
+          = item.price

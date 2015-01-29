@@ -1,0 +1,18 @@
+table.ui.table
+  thead
+    tr
+      th Title
+      th Image
+      th Status
+      th
+  tbody
+    - @items.each do |item|
+      tr
+        td= item.title
+        td
+          img src="#{item.image.url :admin_thumb}"
+        td= item.text_status
+        td.text-right
+          - if item.pending?
+            a.ui.button.red href="#{decline_hq_item_path item}" Decline
+          a.ui.button.blue  href="#{edit_hq_item_path item}"    Edit

@@ -1,0 +1,8 @@
+.ui.info.message
+  .header Search results
+  p
+    | Items shown are results of search query
+    strong<> "#{params[:query]}".
+    | Click
+    a<> href=request.path here
+    | to cancel search.

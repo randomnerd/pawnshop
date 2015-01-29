@@ -1,0 +1,2 @@
+module Hq::ItemsHelper
+end

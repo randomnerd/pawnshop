@@ -1,0 +1,18 @@
+.ui.segment
+  h2 Edit item #{@item.title}
+  .ui.grid
+    .ui.ten.wide.column
+      = simple_form_for [:hq, @item] do |f|
+        = f.input :email
+        = f.input :title
+        = f.input :image
+        = f.input :price, required: true
+        = f.input :status,
+          collection: [ [0, 'Pending'], [1, 'Approved'], [2, 'Declined'] ],
+          value_method: :first,
+          label_method: :last,
+          as: :semantic_ui_radio_buttons
+
+        = f.button :submit, 'Save'
+    .ui.six.wide.column
+      img.ui.medium.bordered.rounded.image src=@item.image.url(:big)

@@ -1,0 +1,6 @@
+.ui.segment
+  = simple_form_for Item.new do |f|
+    = f.input :email
+    = f.input :title
+    = f.input :image
+    = f.button :submit, 'Submit for approval'
